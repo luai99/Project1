@@ -1,0 +1,400 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.logcard {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(
+    -78deg,
+    #0c1243 0%,
+    #0c1243 57%,
+    #850a6d 57%,
+    #850a6d 100%
+  );
+  background-size: cover;
+  font-family: "Montserrat", sans-serif;
+}
+
+.login_btn {
+  background-color: #850a6d;
+  color: #fff5e5;
+}
+
+.login_btn:hover {
+  background-color: #a11385;
+}
+
+.eye-btn:hover {
+  color: #a84c96;
+}
+
+.focus:focus {
+  border-color: #a84c96 !important;
+  box-shadow: 0 0 0 0.1rem #a84c96 !important;
+}
+
+.Dashboard {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: row;
+}
+.background1 {
+  flex: 1;
+  background-color: #850a6d; /* لون الخلفية الأولى */
+}
+.background2 {
+  flex: 4;
+  background-color: #0c1243; /* لون الخلفية الثانية */
+  position: relative;
+}
+
+.background2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30px; /* تعيين التحريك إلى اليسار بقيمة تساوي قيمة الشعاع */
+  width: 30px; /* عرض الشعاع */
+  height: 100%;
+  background-color: #0c1243; /* لون الخلفية الثانية */
+  border-top-left-radius: 30px; /* شعاع للزاوية العلوية اليسرى */
+  border-bottom-left-radius: 30px; /* شعاع للزاوية السفلية اليسرى */
+  z-index: 1; /* تحديد الطبقة الأمامية للعنصر */
+}
+.circle-avatar {
+  width: 60px; /* Set the width and height to create a circle */
+  height: 60px;
+  border-radius: 50%; /* Make it a circle */
+  background-color: #fff5e5; /* Set background color */
+  display: flex;
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+  color: black; /* Set text color */
+  margin-top: 26%;
+  margin-left: 8%;
+}
+
+.avatar-text {
+  font-size: 35px; /* Set text size */
+  font-weight: bold; /* Set text weight */
+}
+.name {
+  margin-top: 33%;
+  margin-left: 8%;
+  color: #fff5e5;
+}
+
+.UserEmail {
+  margin-left: 12%;
+  margin-top: 13%;
+  color: #fff5e5;
+}
+
+.HomeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  height: 30%;
+  margin-left: 9%;
+  margin-top: 13%;
+  background-color: #691758;
+}
+
+.home {
+  background-color: #691758;
+  color: #fff5e5;
+  margin-left: -35%;
+  margin-top: 20%;
+  text-decoration: none;
+}
+
+.home-icon {
+  margin-right: 10px;
+}
+
+.home-text {
+  margin-left: 10px;
+}
+
+.addteacher {
+  background-color: #691758;
+  color: #fff5e5;
+  margin-left: -10%;
+  margin-top: 8%;
+  text-decoration: none;
+}
+
+.students-text {
+  margin-left: 10px;
+}
+.student {
+  background-color: #691758;
+  color: #fff5e5;
+  margin-left: -25%;
+  margin-top: 8%;
+  text-decoration: none;
+}
+
+.add-text {
+  margin-left: 10px;
+}
+
+.logout {
+  background-color: #850a6d;
+  color: #fff5e5;
+  margin-left: 18%;
+  margin-top: 63%;
+}
+
+.logout-text {
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.search {
+  position: relative;
+}
+
+.input-group {
+  display: absolute;
+  align-items: center;
+  margin-top: 2.5%;
+  padding-right: 28%;
+  margin-left: 4%;
+}
+
+.input-group-append {
+  position: relative;
+  background-color: white;
+  align-items: center;
+  height: 45px;
+}
+
+.input-group-append button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.form-control::placeholder {
+  /* Example: Move placeholder 5px to the right */
+  padding-left: 1%;
+  color: black;
+}
+
+.total-member {
+  color: white;
+  font-size: 22px;
+  padding-left: 3%;
+  margin-right: -20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -1%;
+}
+
+.member-number {
+  font-weight: bold; /* Optional: Make the number bold */
+}
+.form-control {
+  height: 45px;
+}
+.btn {
+  margin-top: 5px;
+}
+.containerx {
+  position: relative;
+  height: 100%; /* Ensure container fills the height */
+}
+
+.teachers {
+  margin-top: 5%;
+  height: 60%;
+  width: 86%;
+  background-color: #121b59;
+  position: absolute;
+  top: 5%; /* Adjust as needed */
+  left: 4%; /* Adjust as needed */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.teachers table {
+  width: 100%; /* Ensure the table takes the full width */
+}
+
+.teachers td {
+  width: calc(100% / 3); /* Adjust based on the number of columns */
+  padding: 10px; /* Adjust padding as needed */
+  color: #fff5e5;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .teachers td {
+    width: calc(100% / 2);
+  }
+}
+
+.labels {
+  position: flex;
+  top: 0; /* Adjust as needed */
+  left: 4%; /* Adjust as needed */
+  right: 0%; /* Adjust as needed */
+  display: flex;
+  justify-content: space-between;
+  padding: 65px 0;
+  margin-right: 15%;
+  margin-left: 6%;
+}
+
+.labels span {
+  flex: 1;
+  text-align: center;
+}
+.Photo-label {
+  margin-right: 5%;
+}
+.fullname-label {
+  margin-right: 2%;
+}
+.phone-label {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+.class-label {
+  margin-right: 2%;
+}
+.cv-label {
+  margin-right: 5%;
+}
+
+.circle-photo {
+  width: 70px; /* Set the width and height to create a circle */
+  height: 70px;
+  border-radius: 50%; /* Make it a circle */
+  background-color: white; /* Set background color */
+  display: flex;
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+  color: black; /* Set text color */
+  margin-left: 15%;
+  margin-top: 1.5%;
+}
+
+.focus2:focus {
+  border-color: #c746ae !important;
+  box-shadow: 0 0 0 0.1rem #c746ae !important;
+  outline: none;
+}
+
+.focus2::placeholder {
+  padding-left: 1%;
+  font-size: 15px;
+}
+
+.focus2 {
+  padding-left: 2%;
+}
+
+.edit-btn {
+  background-color: #121b59;
+  color: #fff5e5;
+  border: none; /* Remove the border */
+  outline: none; /* Remove the outline */
+  text-decoration: none;
+}
+
+.delete-btn {
+  background-color: #121b59;
+  color: red;
+  border: none; /* Remove the border */
+  outline: none; /* Remove the outline */
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.btn-op {
+  background-color: #121b59;
+  color: #fff5e5;
+  text-decoration: none;
+  border: none;
+}
+
+.pagination-style {
+  justify-content: center;
+  margin-top: -13%;
+  margin-right: 5%;
+}
+.pagination-style2 {
+  justify-content: center;
+  margin-top: -13%;
+  margin-right: 15%;
+}
+
+.focus3:focus {
+  border-color: #0d1980;
+  box-shadow: 0 0 0 0.1rem;
+  outline: none;
+}
+
+.Modalcv {
+  position: absolute;
+  top: 50%;
+  right: 5%; /* Adjust this value as needed */
+  transform: translateY(-50%);
+  width: 40%; /* Adjust width as needed */
+  height: 52%; /* Adjust height as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #4c4d57;
+  border-radius: 10px;
+  background-color: #0c1243;
+  color: white;
+  padding: 20px;
+}
+.modal-content {
+  width: 110% !important;
+}
+
+.xx-btn {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  border: none;
+  background: transparent; /* Optional: Make the button transparent */
+  cursor: pointer; /* Add pointer cursor for better UX */
+  margin-left: -60px;
+  margin-top: -15px;
+  font-size: 20px;
+  color: red;
+}
+
+.x-btn {
+  border: none;
+  padding: 0px;
+}
+
+.pdf-btn {
+  text-decoration: none;
+  color: #d130b2;
+  font-size: 125%;
+}
+
+.pdf-btn:hover {
+  color: #de8cce;
+}
