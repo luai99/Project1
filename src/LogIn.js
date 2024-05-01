@@ -17,26 +17,28 @@ export default function LogIn() {
   const nav = useNavigate();
 
   const tokenx = useContext(User);
-  
+
   const cookie = new Cookies();
 
   async function submit(e) {
     e.preventDefault();
     const toastId = toast.loading("Loading...");
-   
+
     if (!emailRegex.test(email)) {
+      toast.dismiss(toastId);
       toast.error("Email is not valid");
       return;
     }
 
     if (!passwordRegex.test(password)) {
+      toast.dismiss(toastId);
       toast.error("Password should be at least 8 characters long");
       return;
     }
 
     try {
       let res = await axios.post(
-        "http://quizzy-001-site1.atempurl.com/api/Auth/LogIn",
+        "https://quizzy-001-site1.atempurl.com/api/Auth/LogIn",
         {
           emailAddress: email,
           password: password,
@@ -45,23 +47,17 @@ export default function LogIn() {
 
       if (res.data.success === true) {
         toast.dismiss(toastId);
-        
 
         const tokenres = res.data.data.accessToken;
         const Rtokenres = res.data.data.refreshToken;
 
         tokenx.auth.token = tokenres;
         tokenx.auth.Rtoken = Rtokenres;
-       
 
         cookie.set("Bearer", tokenres);
         cookie.set("Bearer1", Rtokenres);
 
-        
-
         nav("/dashboard");
-
-        
       }
     } catch (err) {
       toast.dismiss(toastId);
@@ -81,7 +77,6 @@ export default function LogIn() {
 
   return (
     <>
-      
       <div className="logcard position-relative">
         <Row>
           <Col lg={6} md={6} sm={12} xs={12}>

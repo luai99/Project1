@@ -214,7 +214,7 @@ export default function UpdateModal({
                   marginBottom: "0%",
                   color: "white",
                   fontSize: "17px",
-                  position: "relative", 
+                  position: "relative",
                 }}
               >
                 Upload CV

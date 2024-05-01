@@ -27,7 +27,7 @@ export default function Students() {
     try {
       const token2 = tokenx.auth.token;
       const response = await axios.get(
-        `http://quizzy-001-site1.atempurl.com/api/Auth/get-studnets?SearchQuery=${search}&PageIndex=${page}&PageSize=${pageSize}`,
+        `https://quizzy-001-site1.atempurl.com/api/Auth/get-studnets?SearchQuery=${search}&PageIndex=${page}&PageSize=${pageSize}`,
         {
           headers: {
             Authorization: `Bearer ${token2}`,
@@ -77,7 +77,7 @@ export default function Students() {
     try {
       const token2 = tokenx.auth.token;
       const response = await axios.post(
-        `http://quizzy-001-site1.atempurl.com/api/Auth/post-delete-user/${selectedUserId}`,
+        `https://quizzy-001-site1.atempurl.com/api/Auth/post-delete-user/${selectedUserId}`,
         null,
         {
           headers: {
@@ -111,7 +111,7 @@ export default function Students() {
 
     try {
       const response = await axios.post(
-        "http://quizzy-001-site1.atempurl.com/api/Auth/refresh-token",
+        "https://quizzy-001-site1.atempurl.com/api/Auth/refresh-token",
         {
           accessToken: gettoken,
           refreshToken: getrtoken,
@@ -229,21 +229,24 @@ export default function Students() {
           </div>
         </div>
 
-        <div className="containerx" style={{ marginRight: "8%" }}>
+        <div
+          className="containerx"
+          style={{ marginRight: "7%", marginLeft: "1%" }}
+        >
           <div className="labels">
             <span className="text-light fullname-label">Full Name</span>
             <span className="text-light fullname-label">Email</span>
             <span className="text-light">Operations</span>
           </div>
-          <div className="teachers rounded-4">
+          <div className="teachers2 rounded-4">
             <table>
               <tbody>
                 {users.map((user) => (
                   <tr key={user.id}>
-                    <td style={{ paddingLeft: "125px" }}>{user.username}</td>
+                    <td style={{ paddingLeft: "110px" }}>{user.username}</td>
 
-                    <td style={{ paddingLeft: "122px" }}>{user.email}</td>
-                    <td style={{ paddingLeft: "115px" }}>
+                    <td style={{ paddingLeft: "40px" }}>{user.email}</td>
+                    <td style={{ paddingLeft: "107px" }}>
                       <button
                         type="button"
                         className="btn-op"
@@ -257,24 +260,24 @@ export default function Students() {
               </tbody>
             </table>
           </div>
+          <ReactPaginate
+            previousLabel={"previous"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            pageCount={totalPages}
+            marginPagesDisplayed={2}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination pagination-style2"}
+            pageClassName={"page-item"}
+            pageLinkClassName={"page-link"}
+            previousClassName={"page-item"}
+            previousLinkClassName={"page-link"}
+            nextClassName={"page-item"}
+            nextLinkClassName={"page-link"}
+            breakLinkClassName={"page-link"}
+            activeClassName={"active"}
+          />
         </div>
-        <ReactPaginate
-          previousLabel={"previous"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          pageCount={totalPages}
-          marginPagesDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination pagination-style2"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-item"}
-          previousLinkClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          breakLinkClassName={"page-link"}
-          activeClassName={"active"}
-        />
       </div>
       <CustomModal
         launchButtonText="Delete"

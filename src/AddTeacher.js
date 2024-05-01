@@ -97,7 +97,7 @@ export default function AddTeacher() {
       formData.append("Cv", cv);
 
       const res = await axios.post(
-        "http://quizzy-001-site1.atempurl.com/api/Auth/add-teacher",
+        "https://quizzy-001-site1.atempurl.com/api/Auth/add-teacher",
         formData,
         {
           headers: {
@@ -143,7 +143,7 @@ export default function AddTeacher() {
 
     try {
       const response = await axios.post(
-        "http://quizzy-001-site1.atempurl.com/api/Auth/refresh-token",
+        "https://quizzy-001-site1.atempurl.com/api/Auth/refresh-token",
         {
           accessToken: gettoken,
           refreshToken: getrtoken,
@@ -316,66 +316,74 @@ export default function AddTeacher() {
                 width: "28%",
               }}
             />
-            <input
-              type="password"
-              placeholder="Password"
-              required
-              autoComplete="on"
-              value={password}
-              id="password"
-              onChange={(e) => setPassword(e.target.value)}
-              className="focus2 border-light rounded-3"
-              style={{
-                height: "50px",
-                marginLeft: "15%",
-                marginTop: "2%",
-                width: "28%",
-              }}
-            />
-
-            <button
-              className="position-absolute top-50 end-0 translate-middle-y border-0"
-              style={{
-                paddingRight: "20%",
-                marginRight: "40%",
-                marginTop: "2%",
-              }}
-              type="button"
-              onClick={togglePasswordVisibility}
+            <div
+              className="position-relative "
+              style={{ marginLeft: "0%", width: "100%" }}
             >
-              <i className="eye-btn fa-regular fa-eye position-absolute"></i>
-            </button>
+              <input
+                type="password"
+                autoComplete="off"
+                placeholder="Password"
+                required
+                value={password}
+                id="password"
+                onChange={(e) => setPassword(e.target.value)}
+                className="focus2 border-light rounded-3"
+                style={{
+                  height: "50px",
+                  marginLeft: "15%",
+                  marginTop: "2%",
+                  width: "28%",
+                }}
+              />
 
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              required
-              autoComplete="on"
-              value={cpassword}
-              id="password2"
-              onChange={(e) => setCPassword(e.target.value)}
-              className="focus2 border-light rounded-3"
-              style={{
-                height: "50px",
-                marginLeft: "15%",
-                marginTop: "2%",
-                width: "28%",
-              }}
-            />
-
-            <button
-              className="position-absolute top-50 end-0 translate-middle-y border-0"
-              style={{
-                paddingRight: "20%",
-                marginRight: "40%",
-                marginTop: "8%",
-              }}
-              type="button"
-              onClick={togglePasswordVisibility2}
+              <button
+                className="position-absolute top-50 end-0 translate-middle-y border-0"
+                style={{
+                  paddingRight: "20%",
+                  marginRight: "40%",
+                  marginTop: "0.5%",
+                }}
+                type="button"
+                onClick={togglePasswordVisibility}
+              >
+                <i className="eye-btn fa-regular fa-eye position-absolute"></i>
+              </button>
+            </div>
+            <div
+              className="position-relative "
+              style={{ marginLeft: "0%", width: "100%" }}
             >
-              <i className="eye-btn fa-regular fa-eye position-absolute"></i>
-            </button>
+              <input
+                type="password"
+                autoComplete="off"
+                placeholder="Confirm Password"
+                required
+                value={cpassword}
+                id="password2"
+                onChange={(e) => setCPassword(e.target.value)}
+                className="focus2 border-light rounded-3"
+                style={{
+                  height: "50px",
+                  marginLeft: "15%",
+                  marginTop: "2%",
+                  width: "28%",
+                }}
+              />
 
+              <button
+                className="position-absolute top-50 end-0 translate-middle-y border-0"
+                style={{
+                  paddingRight: "20%",
+                  marginRight: "40%",
+                  marginTop: "0.5%",
+                }}
+                type="button"
+                onClick={togglePasswordVisibility2}
+              >
+                <i className="eye-btn fa-regular fa-eye position-absolute"></i>
+              </button>
+            </div>
             <div className="d-flex w-100">
               <input
                 readOnly
@@ -487,7 +495,7 @@ export default function AddTeacher() {
                   marginBottom: "16%",
                   color: "white",
                   fontSize: "18px",
-                  position: "relative", 
+                  position: "relative",
                 }}
               >
                 Upload CV

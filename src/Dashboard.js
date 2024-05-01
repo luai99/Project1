@@ -62,7 +62,7 @@ export default function Dashboard() {
     try {
       const token2 = tokenx.auth.token;
       const response = await axios.get(
-        `http://quizzy-001-site1.atempurl.com/api/Auth/get-teachers?SearchQuery=${search}&PageIndex=${page}&PageSize=${pageSize}`,
+        `https://quizzy-001-site1.atempurl.com/api/Auth/get-teachers?SearchQuery=${search}&PageIndex=${page}&PageSize=${pageSize}`,
         {
           headers: {
             Authorization: `Bearer ${token2}`,
@@ -116,7 +116,7 @@ export default function Dashboard() {
     try {
       const token2 = tokenx.auth.token;
       const response = await axios.post(
-        `http://quizzy-001-site1.atempurl.com/api/Auth/post-delete-user/${selectedUserId}`,
+        `https://quizzy-001-site1.atempurl.com/api/Auth/post-delete-user/${selectedUserId}`,
         null,
         {
           headers: {
@@ -187,7 +187,7 @@ export default function Dashboard() {
       formData.append("Cv", cv);
 
       const res = await axios.put(
-        `http://quizzy-001-site1.atempurl.com/api/Auth/update-teacher/${selectedUserId2}`,
+        `https://quizzy-001-site1.atempurl.com/api/Auth/update-teacher/${selectedUserId2}`,
         formData,
         {
           headers: {
@@ -235,7 +235,7 @@ export default function Dashboard() {
 
     try {
       const response = await axios.post(
-        "http://quizzy-001-site1.atempurl.com/api/Auth/refresh-token",
+        "https://quizzy-001-site1.atempurl.com/api/Auth/refresh-token",
         {
           accessToken: gettoken,
           refreshToken: getrtoken,
@@ -379,31 +379,34 @@ export default function Dashboard() {
               <tbody>
                 {users.map((user) => (
                   <tr key={user.id}>
-                    <td style={{ paddingLeft: "5.5%" }}>
+                    <td style={{ paddingLeft: "4.5%" }}>
                       <img
                         src={`http://quizzy-001-site1.atempurl.com/${user.imageUrl}`}
                         style={{
-                          width: "50px",
-                          height: "50px",
+                          width: "10vw",
+                          height: "10vw",
+                          maxWidth: "50px",
+                          maxHeight: "50px",
                           borderRadius: "50%",
-                          objectFit: "cover",
+                          objectFit:
+                            "cover" /* Maintain aspect ratio and cover container */,
                         }}
                         alt=""
                       />
                     </td>
 
-                    <td style={{ paddingLeft: "62px" }}>{user.userName}</td>
-                    <td style={{ paddingLeft: "30px" }}>{user.phoneNumber}</td>
+                    <td style={{ paddingLeft: "55px" }}>{user.userName}</td>
+                    <td style={{ paddingLeft: "12px" }}>{user.phoneNumber}</td>
                     <td
                       style={{
-                        paddingRight: "85px",
+                        paddingRight: "68px",
                       }}
                     >
                       {user.class}
                     </td>
-                    <td style={{ paddingRight: "118px" }}>
+                    <td style={{ paddingRight: "103px" }}>
                       <a
-                        href={`http://quizzy-001-site1.atempurl.com/files/${user.cvFileName}`}
+                        href={`https://quizzy-001-site1.atempurl.com/files/${user.cvFileName}`}
                         target="_blank"
                         rel="noreferrer"
                         download=""
@@ -420,7 +423,7 @@ export default function Dashboard() {
                         <i className="fa-solid fa-pen edit-btn"></i>
                       </button>
                     </td>
-                    <td style={{ paddingRight: "90px" }}>
+                    <td style={{ paddingRight: "92px" }}>
                       <button
                         type="button"
                         className="btn-op"
@@ -434,25 +437,24 @@ export default function Dashboard() {
               </tbody>
             </table>
           </div>
+          <ReactPaginate
+            previousLabel={"previous"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            pageCount={totalPages}
+            marginPagesDisplayed={2}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination pagination-style "}
+            pageClassName={"page-item"}
+            pageLinkClassName={"page-link"}
+            previousClassName={"page-item"}
+            previousLinkClassName={"page-link"}
+            nextClassName={"page-item"}
+            nextLinkClassName={"page-link"}
+            breakLinkClassName={"page-link"}
+            activeClassName={"active"}
+          />
         </div>
-
-        <ReactPaginate
-          previousLabel={"previous"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          pageCount={totalPages}
-          marginPagesDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination pagination-style "}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-item"}
-          previousLinkClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          breakLinkClassName={"page-link"}
-          activeClassName={"active"}
-        />
       </div>
       <CustomModal
         launchButtonText="Delete"
